@@ -1,0 +1,263 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article}
+ \usepackage{graphicx}
+\usepackage{etex}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{ae,aecompl}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{float}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage[locale=DE, per-mode=fraction, quotient-mode=fraction, group-minimum-digits=6]{siunitx}
+\usepackage{tabularx}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{pictex}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm,includeheadfoot]{geometry}
+\usepackage[section]{placeins}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{esvect}
+\usepackage{pgfplots}
+\usepackage[ngerman]{babel}
+\usepackage {graphics}
+\usepackage {graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{autonum}
+
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyfoot[C]{Seite \thepage{} von \pageref{LastPage}}
+\linespread{1.5}
+\author{Dominik Eisele}
+\title{Laborbericht}
+\date{\today}
+
+
+%\begingroup\makeatletter\ifx\SetFigFontNFSS\undefined%
+%\gdef\SetFigFontNFSS#1#2#3#4#5{%
+%  \reset@font\fontsize{#1}{#2pt}%
+%  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+%  \selectfont}%
+%\fi\endgroup%
+
+
+% Zusätzliche Spalten mit variabler Breite fur tabularx
+%\newcolumntype{L}{>{\raggedright\arraybackslash}X} % linksbündig
+%\newcolumntype{C}{>{\centering\arraybackslash}X} % zentriert
+%\newcolumntype{R}{>{\raggedleft\arraybackslash}X} % rechtsbündig
+
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+
+
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1}
+
+
+%\renewcommand*\contentsname{Gliederung}
+
+
+\let\oldsqrt\sqrt
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.3\ht0
+%0.3 ist das Maß für die Hakenlänge, relativ zum Inhalt der Wurzel
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{flushleft}
+		\vspace*{2\baselineskip}
+		{\fontsize{16}{19.2}\selectfont Laborbericht Physik TGE12/2 A}\\[4\baselineskip]
+		\begin{tabularx}{\textwidth}{rp{5px}X}
+			{\fontsize{16}{19.2}\selectfont Titel:}&&{\fontsize{16}{19.2}\selectfont Entladung eines Kondensators}
+		\end{tabularx}
+		\\[5\baselineskip]
+		\setlength{\tabcolsep}{0pt}
+		\renewcommand{\arraystretch}{1,25}
+		\begin{tabular}{lp{5px}l}
+			{\fontsize{14}{16.8}\selectfont Bearbeiter:}&&{\fontsize{14}{16.8}\selectfont Dominik Eisele{}}\\
+			{\fontsize{14}{16.8}\selectfont Mitarbeiter:}&&{\fontsize{14}{16.8}\selectfont }\\
+			{\fontsize{14}{16.8}\selectfont Datum Versuchsdurchführung:}&&{\fontsize{14}{16.8}\selectfont 29.02.2016}\\
+			{\fontsize{14}{16.8}\selectfont Datum Abgabe:}&&{\fontsize{14}{16.8}\selectfont 23.03.2016}
+		\end{tabular}
+		\\[2\baselineskip]
+		{\fontsize{14}{16.8}\selectfont Ich erkläre an Eides statt, den vorliegenden Laborbericht selbst angefertigt zu haben. Alle fremden Quellen wurden in diesem Laborbericht benannt.}
+		\\[2\baselineskip]
+		{\fontsize{14}{16.8}\selectfont Aichwald, 16. März 2016 $  $ Dominik Eisele}
+	\end{flushleft}
+\end{titlepage}
+
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1,7}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\section{Einführung}
+	Bei dem Versuch zur Entladung eines Kondensators ergibt sich die Entladekurve eines Kondensators über einen Widerstand.
+	Aus dieser Entladekurve lassen sich nun die Ladung und die Kapazität berechnen. \\
+	Zusätzlich wurde für den Widerstand, über den der Kondensator entladen wird, das Multimetereingesetzt. So kann man den 
+	Innenwiderstand des Multimeters berechnen.
+
+\subsection{Ziele}
+	\begin{itemize}
+		\item Aufnahme der Entladekurve eines Kondensators
+		\item Bestimmung der Ladung eines Kondensators (aus der Entladekurve)
+		\item Bestimmung der Kapazität eines Kondensators
+		\item Bestimmung des Innenwiderstands eines Multimeters
+	\end{itemize}
+
+\subsection{Formeln}
+	Strom/Ladung
+	\[I=\frac{\Delta Q}{\Delta t} \text{ bzw. }I=\frac{dQ}{dt} \text{; } [I]=\si{\ampere}\]
+	Kapazität
+	\[C=\frac{Q}{U} \text{; } [C]=\si{\farad}\]
+	Entladung eines Kondensators über einen Widerstand
+	\[Q(t)=Q_{0} \cdot e^{-\frac{t}{RC}}\]
+	\[U(t)=U_{0} \cdot e^{-\frac{t}{RC}}\]
+
+\newpage
+\section{Material und Methoden}
+
+\subsection{Material}
+	Für den Versuch verwendete Materialien:
+	\begin{itemize}
+		\item 1 $\times$ Netzteil
+		\item 1 $\times$ Digitalmultimeter
+		\item 1 $\times$ Kondensator
+		\item 1 $\times$ Widerstand \SI{47}{\kilo\ohm}
+		\item 1 $\times$ Steckbrett
+		\item Leitungen
+	\end{itemize}
+
+\subsection{Aufbau}
+	Die Schaltung, wie sie in Abbildung \ref{fig:skizze_schaltplan} zu sehen ist, wurde auf dem Steckbrett gesteckt. \\
+	In der zweiten Messreihe wurde der Widerstand entfernt, sodass der Kondensator nur über den Innenwiderstand des
+	Multimeters entladen wurde.
+	\begin{figure}[H]
+		\centering
+		\scalebox{1.5}{\input{skizze_schaltplan}}
+		\caption{Skizze des Schaltplans}
+		\label{fig:skizze_schaltplan}
+	\end{figure}
+
+
+\newpage
+\subsection{Durchführung}
+	Nachdem die Schaltung wie beschrieben aufegebaut worden war, wurde der Kondensator für \SI{30}{\second} mit \SI{5}{\volt}aufgeladen.
+	Als der Kondensator vollständig geladen war, wurde das Netzteil ausgesteckt, sodass sich der Kondensator entladen konnte. 
+	Die Spannung die am Kondensator anlag wurde, während des Entladevorgangs, in \SI{10}{\second} Intervallen gemessen. Die
+	Messungen wurden abgebrochen, nachdem \SI{3}{\percent} der Ausgangsspannung  anlagen, bzw. \SI{5}{\minute} vergangen waren.\\
+	Diese Messung wurde mit \SI{10}{\volt} und mit \SI{15}{\volt} wiederholt.\\
+	Zusätzlich wurde eine Messreihe durchgeführt, bei der der Widerstand entfernt wurde. Damit hat man die Möglichkeit den 
+	Innenwiderstand des Multimeters zu berechnen. Diese Messreihe wurde bei eine Audgangsladung von \SI{10}{\volt} durchgeführt.
+
+
+\newpage
+\section{Messwerte}
+	In Tabelle \ref{tab:messwerte1} sind die Messwerte für die ersten drei Messreihen zu sehen. Hierbei handelt es sich um die 
+	Kondensatorentladungen über den Widerstand. In Tabelle \ref{tab:messwerte2} sind die Messwerte für die Entladung über den 
+	Innenwiderstand des Multimeters zu sehen.
+			
+
+	
+	\begin{table}
+		\centering
+		\label{tab:messwerte1}
+		\begin{tabular}{llllllllll}
+			\cline{1-4} \cline{7-10}
+			$t$ in $\si{\second}$ 	& $\SI{5}{\volt}$ 	& $\SI{10}{\volt}$ 	& $\SI{15}{\volt}$ 	&  &  & $t$ in $\si{\second}$ & $\SI{5}{\volt}$ & $\SI{10}{\volt}$ & $\SI{15}{\volt}$ \\ \cline{1-4} \cline{7-10} 
+			\num{0} 			& 5,0 			& 10,0 			& 15,0			&  &  & \num{160} 		& 0,2				& 0,38 			& 0,58 \\
+			\num{10}			& 4,0 			& 8,17 			& 12,16 			&  &  & \num{170} 		& 0,2 			& 0,31 			& 0,48 \\
+			\num{20} 			& 3,2 			& 6,54 			& 9,85 			&  &  & \num{180} 		& 0,14 			& 0,26 			& 0,40 \\
+			\num{30} 			& 2,7 			& 5,30 			& 7,99			&  &  & \num{190} 		& 0,12 			& 0,21 			& 0,33 \\
+			\num{40} 			& 2,92			& 4,34 			& 6,54			&  &  & \num{200} 		& 0,1 			& 0,18 			& 0,27 \\
+			\num{50} 			& 1,6 			& 3,53 			& 5,32			&  &  & \num{210} 		& 0,09 			& 0,15 			& 0,23 \\
+			\num{60} 			& 1,4 			& 2,86 			& 4,32			&  &  & \num{220} 		& 0,073 			& 0,13 			& 0,19 \\
+			\num{70}			& 1,2 			& 2,35 			& 3,51 			&  &  & \num{230} 		& 0,06 			& 0,10 			& 0,164\\
+			\num{80} 			& 1,0 			& 1,89 			& 2,86 			&  &  & \num{240} 		& 0,053 			& 0,088 			& 0,138\\
+			\num{90} 			& 0,8 			& 1,54 			& 2,33 			&  &  & \num{250} 		& 0,045 			& 0,077 			& 0,115\\
+			\num{100} 		& 0,7 			& 1,27 			& 1,90 			&  &  & \num{260} 		& 0,04 			& 0,060 			& 0,100\\
+			\num{110}			& 0,5 			& 1,04 			& 1,56 			&  &  & \num{270} 		& 0,035 			& 0,055 			& 0,085\\
+			\num{120} 		& 0,4 			& 0,84 			& 1,28 			&  &  & \num{280} 		& 0,032 			& 0,049 			& 0,073\\
+			\num{130} 		& 0,4 			& 0,70 			& 1,05 			&  &  & \num{290} 		& 0,027 			& 0,04 			& 0,063\\
+			\num{140} 		& 0,3 			& 0,57 			& 0,86 			&  &  & \num{300}		& 0,025 			& 0,037 			& 0,055\\
+			\num{150} 		& 0,3 			& 0,47 			& 0,71 			&  &  & \num{310}		& 0,023 			& 0,033 			& 0,045\\ \cline{1-4} \cline{7-10}
+		\end{tabular}
+		\caption{Messreihen mit Widerstand}
+	\end{table}
+
+	\begin{table}
+		\centering
+		\label{tab:messwerte2}
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			$t$ in $\si{\second}$ & $\SI{10}{\volt}$ \\ \midrule
+			\num{0}             & 10,0             \\
+			\num{30}            & 9,74             \\
+			\num{60}            & 9,46             \\
+			\num{90}            & 9,20             \\
+			\num{120}           & 8,94             \\
+			\num{150}           & 8,70             \\
+			\num{180}           & 8,45             \\
+			\num{210}           & 8,22             \\
+			\num{240}           & 8,00             \\
+			\num{270}           & 7,78             \\
+			\num{300}           & 7,56             \\ \bottomrule
+		\end{tabular}
+		\caption{Messwerte ohne Widerstand}
+	\end{table}
+
+		
+
+\newpage
+\section{Auswertung}
+	\subsection{Betrag der elektrischen Feldstärke $E$}
+	Die benötigte Formel zu Berechnung der elektrischen Feldstärke $E$ lautet:
+	\[E=\frac{\text{Potentialdifferenz }\Delta\varphi}{\text{Abstand der Potentiallinien }\Delta s}\] 
+	Für den Abstand der Potentiallinie  wurde die Länge Feldlinien gemessen. 
+	
+	\subsubsection{Messreihe 1}
+	Punkt $P_1 \left(\num{1.8} \mid 2\right)$,  Punkt $P_2 \left(\num{5,5} \mid \num{4,4}\right)$, Punkt $P_3 \left(\num{9.6} \mid 8\right)$:
+		\[E_{P_1} = \frac{\SI{10}{\volt}}{\SI{0,11}{\metre}} = \SI{90,9091}{\volt \per \meter}\] 
+		\[E_{P_2} = \frac{\SI{10}{\volt}}{\SI{0.115}{\metre}} = \SI{86,9565}{\volt \per \meter}\]
+		\[E_{P_3} = \frac{\SI{10}{\volt}}{\SI{0.12}{\metre}} = \SI{83,3333}{\volt \per \meter}\]
+	
+
+	\subsubsection{Messreihe 2}
+	Punkt $P_1 \left(\num{1,3} \mid \num{5,5}\right)$,  Punkt $P_2 \left(\num{6.2} \mid \num{1,35}\right)$, Punkt $P_3 \left(\num{7.38} \mid \num{-2,05}\right)$:
+		\[E_{P_1} = \frac{\SI{10}{\volt}}{\SI{0,12}{\metre}} = \SI{83,3333}{\volt \per \meter}\] 
+		\[E_{P_2} = \frac{\SI{10}{\volt}}{\SI{0.11}{\metre}} = \SI{90,9091}{\volt \per \meter}\]
+		\[E_{P_3} = \frac{\SI{10}{\volt}}{\SI{0.11}{\metre}} = \SI{90,9091}{\volt \per \meter}\]
+
+	\subsection{Beobachtung zum Metallring}
+	Der in Messreihe 2 hinzugefügte Metallring besaß ein einheitliches Potential von  \SI{4,3}{\volt}. Diese einheitliches Potential
+	entsteht, da der Ring als Leiter keine Potentialdifferenz besitzt. Dadurch ist die Ringinnenfläche komplett von den beiden Elektroden abgeschirmt,
+	und es wirkt nur der Ring als Äquipotentiallinie auf das Ringinnere. Dadurch entsteht keine Potentialdifferenz im Ringinneren.
+
+\end{document}
+
+
+
+
+
+
+
+
