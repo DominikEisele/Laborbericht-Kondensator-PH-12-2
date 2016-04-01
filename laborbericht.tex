@@ -165,15 +165,13 @@
 	Als der Kondensator vollständig geladen war, wurde das Netzteil ausgesteckt, sodass sich der Kondensator entladen konnte.
 	Die Spannung die am Kondensator anlag wurde, während des Entladevorgangs, in \SI{10}{\second} Intervallen gemessen. Die
 	Messungen wurden abgebrochen, nachdem \SI{3}{\percent} der Ausgangsspannung  anlagen, bzw. \SI{5}{\minute} vergangen waren.\\
-<<<<<<< HEAD
 	Diese Messung wurde mit \SI{10}{\volt} und mit \SI{15}{\volt} wiederholt. Zusätzlich wurde eine Messreihe durchgeführt, bei der der
 	Widerstand entfernt wurde. Damit hat man die Möglichkeit den Innenwiderstand des Multimeters zu berechnen. Diese Messreihe wurde
 	bei eine Audgangsladung von \SI{10}{\volt} durchgeführt.
-=======
 	Diese Messung wurde mit \SI{10}{\volt} und mit \SI{15}{\volt} wiederholt.\\
 	Zusätzlich wurde eine Messreihe durchgeführt, bei der der Widerstand entfernt wurde. Damit hat man die Möglichkeit den
 	Innenwiderstand des Multimeters zu berechnen. Diese Messreihe wurde bei eine Audgangsladung von \SI{10}{\volt} durchgeführt.
->>>>>>> af479b00382b98fe0e9c92b2f5a3c5f51ab07ae4
+
 
 
 \newpage
@@ -214,18 +212,18 @@
 		\centering
 		\begin{tabular}{@{}ll@{}}
 			\toprule
-			$t$ in $\si{\second}$ & $\SI{10}{\volt}$ \\ \midrule
-			\num{0}             & 10,0             \\
-			\num{30}            & 9,74             \\
-			\num{60}            & 9,46             \\
-			\num{90}            & 9,20             \\
-			\num{120}           & 8,94             \\
-			\num{150}           & 8,70             \\
-			\num{180}           & 8,45             \\
-			\num{210}           & 8,22             \\
-			\num{240}           & 8,00             \\
-			\num{270}           & 7,78             \\
-			\num{300}           & 7,56             \\ \bottomrule
+			$t$ in $\si{\second}$	& $\SI{10}{\volt}$	\\ \midrule
+			\num{0}			& 10,0			\\
+			\num{30}			& 9,74			\\
+			\num{60}			& 9,46			\\
+			\num{90}			& 9,20			\\
+			\num{120}			& 8,94			\\
+			\num{150}			& 8,70			\\
+			\num{180}			& 8,45			\\
+			\num{210}			& 8,22			\\
+			\num{240}			& 8,00			\\
+			\num{270}			& 7,78			\\
+			\num{300}			& 7,56			\\ \bottomrule
 		\end{tabular}
 		\caption{Messwerte ohne Widerstand}
 		\label{tab:messwerte2}
@@ -235,10 +233,35 @@
 
 \newpage
 \section{Auswertung}
-	\subsection{Betrag der elektrischen Feldstärke $E$}
-	Die benötigte Formel zu Berechnung der elektrischen Feldstärke $E$ lautet:
-	\[E=\frac{\text{Potentialdifferenz }\Delta\varphi}{\text{Abstand der Potentiallinien }\Delta s}\]
-	Für den Abstand der Potentiallinie  wurde die Länge Feldlinien gemessen.
+	\subsection{$I(t)$-Diagramme}
+	Für die $I(t)$-Diagramme werden die Ströme mit der Formel $I=\frac{U}{R}$ berechnet.\\
+	Sie sind in Tabelle \ref{tab:I(t)} abgebildet.
+
+	\begin{table}
+		\centering
+		\begin{tabular}{llllllllll}
+			\cline{1-4} \cline{7-10}
+			$t$ in $\si{\second}$  	 & $\SI{5}{\volt}$ 	 & $\SI{10}{\volt}$ 	 & $\SI{15}{\volt}$ 	&  &  & $t$ in $\si{\second}$ 	& $\SI{5}{\volt}$ 	& $\SI{10}{\volt}$ 	& $\SI{15}{\volt}$ 	\\ \cline{1-4} \cline{7-10}
+			\num{0} 	       	       & 5,0 	       	       & 10,0 	       	       & 15,0	       	       			&  &  & \num{160} 	       		& 0,2	       	       	       	& 0,38 	       	       	& 0,58 			\\
+			\num{10}	       	       & 4,0 	       	       & 8,17 	       	       & 12,16 	       	       	       	&  &  & \num{170} 	       		& 0,2 	       	       	& 0,31 	       	       	& 0,48 			\\
+			\num{20}	       	       & 3,2 	       	       & 6,54 	       	       & 9,85 	       	       		&  &  & \num{180} 	       		& 0,14 	       	       	& 0,26 	       	       	& 0,40 			\\
+			\num{30}	       	       & 2,7 	       	       & 5,30 	       	       & 7,99	       	       			&  &  & \num{190} 	       		& 0,12 	       	       	& 0,21 	       	       	& 0,33 			\\
+			\num{40}	       	       & 2,92	       	       & 4,34 	       	       & 6,54	       	       			&  &  & \num{200} 	       		& 0,1 	       	       	& 0,18 	       	       	& 0,27 			\\
+			\num{50}	       	       & 1,6 	       	       & 3,53 	       	       & 5,32	       	       			&  &  & \num{210} 	       		& 0,09 	       	       	& 0,15 	       	       	& 0,23 			\\
+			\num{60}	       	       & 1,4 	       	       & 2,86 	       	       & 4,32	       	       			&  &  & \num{220} 	       		& 0,073 	       	       	& 0,13 	       	       	& 0,19 			\\
+			\num{70}	       	       & 1,2 	       	       & 2,35 	       	       & 3,51 	       	      		&  &  & \num{230} 	       		& 0,06 	       	       	& 0,10 	       	       	& 0,164			\\
+			\num{80}	       	       & 1,0 	       	       & 1,89 	       	       & 2,86 	       	       		&  &  & \num{240} 	       		& 0,053 	       	       	& 0,088 	       	       	& 0,138			\\
+			\num{90}	       	       & 0,8 	       	       & 1,54 	       	       & 2,33 	       	       		&  &  & \num{250} 	       		& 0,045 	       	       	& 0,077 	       	       	& 0,115			\\
+			\num{100}	       	       & 0,7 	       	       & 1,27 	       	       & 1,90 	       	       		&  &  & \num{260} 	       		& 0,04 	       	       	& 0,060 	       	       	& 0,100			\\
+			\num{110}	       	       & 0,5 	       	       & 1,04 	       	       & 1,56 	       	       		&  &  & \num{270} 	       		& 0,035 	       	       	& 0,055 	       	       	& 0,085			\\
+			\num{120}	       	       & 0,4 	       	       & 0,84 	       	       & 1,28 	       	       		&  &  & \num{280} 	       		& 0,032 	       	       	& 0,049 	       	       	& 0,073			\\
+			\num{130}	       	       & 0,4 	       	       & 0,70 	       	       & 1,05 	       	       		&  &  & \num{290} 	       		& 0,027 	       	       	& 0,04 	       	       	& 0,063			\\
+			\num{140}	       	       & 0,3 	       	       & 0,57 	       	       & 0,86 	       	       		&  &  & \num{300}	       		& 0,025 	       	       	& 0,037 	       	       	& 0,055			\\
+			\num{150}	       	       & 0,3 	       	       & 0,47 	       	       & 0,71 	       	       		&  &  & \num{310}	       		& 0,023 	       	       	& 0,033 	       	       	& 0,045			\\ \cline{1-4} \cline{7-10}
+		\end{tabular}
+		\caption{$I(t)$}
+		\label{tab:I(t)}
+	\end{table}
  
 	\subsubsection{Messreihe 1}
 	Punkt $P_1 \left(\num{1.8} \mid 2\right)$,  Punkt $P_2 \left(\num{5,5} \mid \num{4,4}\right)$, Punkt $P_3 \left(\num{9.6} \mid 8\right)$:
