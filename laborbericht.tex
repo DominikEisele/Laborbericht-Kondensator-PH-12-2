@@ -9,7 +9,7 @@
 \usepackage{float}
 \usepackage{ulem}
 \usepackage{amssymb}
-\usepackage[locale=DE, per-mode=fraction, quotient-mode=fraction, group-minimum-digits=6]{siunitx}
+\usepackage[locale=DE, per-mode=fraction, quotient-mode=fraction, group-minimum-digits=6,]{siunitx}
 \usepackage{tabularx}
 \usepackage{bm}
 \usepackage{booktabs}
@@ -79,8 +79,9 @@
 
 
 \newcommand{\Vo}[1]{{$\SI{#1}{\volt}$}}
-\newcommand{\Se}[1]{{$\SI{#1}{\second}$}}
+\newcommand{\Am}[1]{{$\SI{#1}{\ampere}$}}
 \newcommand{\mAm}[1]{{$\SI{#1}{\milli\ampere}$}}
+\newcommand{\Se}[1]{{$\SI{#1}{\second}$}}
 
 
 
@@ -187,7 +188,7 @@
 	In Tabelle \ref{tab:messwerte1} sind die Messwerte für die ersten drei Messreihen zu sehen. Hierbei handelt es sich um die
 	Kondensatorentladungen über den Widerstand. In Tabelle \ref{tab:messwerte2} sind die Messwerte für die Entladung über den
 	Innenwiderstand des Multimeters zu sehen.
-	 
+ 
 
 
 
@@ -201,174 +202,97 @@
 		 \label{tab:messwerte2}
 	\end{table}
 
- 
+
 
 \newpage
 \section{Auswertung}
 	\subsection{$I(t)$-Diagramme}
-	Für die $I(t)$-Diagramme werden die Ströme mit der Formel $I=\frac{U}{R}$ berechnet.\\
-	Die Ströme zum Zeitpunkt$t$ sind in Tabelle \ref{tab:I(t)} abgebildet.
+		Für die $I(t)$-Diagramme werden die Ströme mit der Formel $I=\frac{U}{R}$ berechnet.\\
+		Die Ströme zum Zeitpunkt$t$ sind in Tabelle \ref{tab:I(t)} abgebildet.
 
-	\begin{table}
-		\include{I(t)-tabelle}
-		\label{tab:I(t)}
-	\end{table}
+		\begin{table}
+			\include{I(t)-tabelle}
+			\label{tab:I(t)}
+		\end{table}
 
-	\begin{figure}
-	\begin{tikzpicture}[xscale=0.04,yscale=10]
-		% Achsen
-		\draw[->] (-0.3/0.04,0) -- (320,0) node[below right] {$t$ in \Se{}};
-		\draw[->] (0,-0.3/10) -- (0,1.2) node[left] {$I$ in \mAm{}};
-		% Achsbeschriftung
-		\foreach \x in {50,100,...,310} \draw (\x,0.01) -- (\x,-0.01) node [below] {\x};
-		\foreach \y in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1} \draw (3,\y) -- (-3,\y) node [left] {\y};
-		% Funktion
-		\draw[red, samples=10, domain=0:320] plot (\x, {0.867324*e^(-0.017749*\x)});
-		%Funktionbeschriftung
-		\node (32) at (10 , 0.86) [right] {$f(x) = 0.867324 * e ^{(-0.017749 * x)}$};	
-		% Messpunkte
-		\node (1)   at (0    ,1.064) {\textsf{x}};
-		\node (2)   at (10  ,0.851) {\textsf{x}};
-		\node (3)   at (20  ,0.681) {\textsf{x}};
-		\node (4)   at (30  ,0.574) {\textsf{x}};
-		\node (5)   at (40  ,0.457) {\textsf{x}};
-		\node (6)   at (50  ,0.340) {\textsf{x}};
-		\node (7)   at (60  ,0.298) {\textsf{x}};
-		\node (8)   at (70  ,0.255) {\textsf{x}};
-		\node (9)   at (80  ,0.213) {\textsf{x}};
-		\node (10) at (90  ,0.170) {\textsf{x}};
-		\node (11) at (100,0.149) {\textsf{x}};
-		\node (12) at (110,0.106) {\textsf{x}};
-		\node (13) at (120,0.085) {\textsf{x}};
-		\node (14) at (130,0.085) {\textsf{x}};
-		\node (15) at (140,0.064) {\textsf{x}};
-		\node (16) at (150,0.064) {\textsf{x}};
-		\node (17) at (160,0.043) {\textsf{x}};
-		\node (18) at (170,0.043) {\textsf{x}};
-		\node (19) at (180,0.030) {\textsf{x}};
-		\node (20) at (190,0.026) {\textsf{x}};
-		\node (20) at (200,0.021) {\textsf{x}};
-		\node (21) at (210,0.019) {\textsf{x}};
-		\node (22) at (220,0.016) {\textsf{x}};
-		\node (23) at (230,0.013) {\textsf{x}};
-		\node (24) at (240,0.011) {\textsf{x}};
-		\node (25) at (250,0.010) {\textsf{x}};
-		\node (26) at (260,0.009) {\textsf{x}};
-		\node (27) at (270,0.007) {\textsf{x}};
-		\node (28) at (280,0.007) {\textsf{x}};
-		\node (29) at (290,0.006) {\textsf{x}};
-		\node (30) at (300,0.005) {\textsf{x}};
-		\node (31) at (310,0.005) {\textsf{x}};
-	\end{tikzpicture}
-	\caption{Diagramm: Kondensatorspannung \Vo{5}}
-	\label{fig:Diagramm_5V}
-	\end{figure}
+		\begin{figure}
+		\include{Diagramm5V}
+		\caption{Diagramm: Kondensatorspannung \Vo{5}}
+		\label{fig:Diagramm_5V}
+		\end{figure}
+
+
+		\begin{figure}
+		\include{Diagramm10V}
+		\caption{Diagramm: Kondensatorspannung \Vo{10}}
+		\label{fig:Diagramm_10V}
+		\end{figure}
+
+
+		\begin{figure}
+		\include{Diagramm15V}
+		\caption{Diagramm: Kondensatorspannung \Vo{15}}
+		\label{fig:Diagramm_15V}
+		\end{figure}
+
+\newpage
+	\subsection{Ladung und Kapazität des Kondensators}
+		Die Ladung des Kondensators Q ergibt aus der Formel:
+		\[Q=\int\limits_{0}^ \infty \mathrm I\,\mathrm dt\]
+		Die Kapazität des Kondensators C ergibt aus der Formel:
+		\[C=\frac{Q}{U}\]
 
 
 
-	\begin{figure}
-	\begin{tikzpicture}[xscale=0.04,yscale=5]
-		% Achsen
-		\draw[->] (-0.3/0.04,0) -- (320,0) node[below right] {$t$ in \Se{}};
-		\draw[->] (0,-0.3/5) -- (0,2.3) node[left] {$I$ in \mAm{}};
-		% Achsbeschriftung
-		\foreach \x in {50,100,...,310} \draw (\x,0.02) -- (\x,-0.02) node [below] {\x};
-		\foreach \y in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2} \draw (3,\y) -- (-3,\y) node [left] {\y};
-		% Funktion
-		\draw[red, samples=10, domain=0:320] plot (\x, {1.842886*e^(-0.018870 * \x)});
-		%Funktionbeschriftung
-		\node (32) at (10 , 1.85) [right] {$ f(x) = 1.842886 * e ^{ (-0.018870 * x)}$};	
-		% Messpunkte
-		\node (1)   at (0    ,2.128) {\textsf{x}};
-		\node (2)   at (10  ,1.738) {\textsf{x}};
-		\node (3)   at (20  ,1.391) {\textsf{x}};
-		\node (4)   at (30  ,1.128) {\textsf{x}};
-		\node (5)   at (40  ,0.923) {\textsf{x}};
-		\node (6)   at (50  ,0.751) {\textsf{x}};
-		\node (7)   at (60  ,0.609) {\textsf{x}};
-		\node (8)   at (70  ,0.500) {\textsf{x}};
-		\node (9)   at (80  ,0.402) {\textsf{x}};
-		\node (10) at (90  ,0.328) {\textsf{x}};
-		\node (11) at (100,0.270) {\textsf{x}};
-		\node (12) at (110,0.221) {\textsf{x}};
-		\node (13) at (120,0.179) {\textsf{x}};
-		\node (14) at (130,0.149) {\textsf{x}};
-		\node (15) at (140,0.121) {\textsf{x}};
-		\node (16) at (150,0.100) {\textsf{x}};
-		\node (17) at (160,0.081) {\textsf{x}};
-		\node (18) at (170,0.066) {\textsf{x}};
-		\node (19) at (180,0.055) {\textsf{x}};
-		\node (20) at (190,0.045) {\textsf{x}};
-		\node (20) at (200,0.038) {\textsf{x}};
-		\node (21) at (210,0.032) {\textsf{x}};
-		\node (22) at (220,0.028) {\textsf{x}};
-		\node (23) at (230,0.021) {\textsf{x}};
-		\node (24) at (240,0.019) {\textsf{x}};
-		\node (25) at (250,0.016) {\textsf{x}};
-		\node (26) at (260,0.013) {\textsf{x}};
-		\node (27) at (270,0.012) {\textsf{x}};
-		\node (28) at (280,0.010) {\textsf{x}};
-		\node (29) at (290,0.009) {\textsf{x}};
-		\node (30) at (300,0.008) {\textsf{x}};
-		\node (31) at (310,0.007) {\textsf{x}};
-	\end{tikzpicture}
-	\caption{Diagramm: Kondensatorspannung \Vo{10}}
-	\label{fig:Diagramm_10V}
-	\end{figure}
+		\subsubsection{Für Kondensatorspannung 5V}
+			Ladung:
+			\begin{align}
+				Q	& = \int\limits_{0}^ \infty \mathrm 0.867324 \cdot e^{-0.017749 * x}\,\mathrm dt\\
+				%Q	& = \SI{\frac{867324}{17749}}{\farad}\\
+				Q	& \approx \SI{48.866077}{\coulomb}
+			\end{align}
+
+			Kapazität:
+			\begin{align}
+				C	& = \frac{Q}{U}\\
+				C	& = \frac{\SI{48.866077}{\coulomb}}{\SI{5}{\volt}}\\
+				C	& \approx \SI{9.773215}{\farad}
+			\end{align}
+
+		\subsubsection{Für Kondensatorspannung 10V}
+			Ladung:
+			\begin{align}
+				Q	& = \int\limits_{0}^ \infty \mathrm 1.842886 \cdot e ^{-0.018870 * x}\,\mathrm dt\\
+				%Q	& = \SI{\frac{921443}{9435}}{\coulomb}\\
+				Q	& \approx \SI{97.662215}{\coulomb}
+			\end{align}
+
+			Kapazität:
+			\begin{align}
+				C	& = \frac{Q}{U}\\
+				C	& = \frac{\SI{97.662215}{\coulomb}}{\SI{10}{\volt}}\\
+				C	& \approx \SI{9.7662212}{\farad}
+			\end{align}
+
+
+		\subsubsection{Für Kondensatorspannung 15V}
+			Ladung:
+			\begin{align}
+				Q	& = \int\limits_{0}^ \infty \mathrm 2.775478 \cdot e ^{-0.018834 * x}\,\mathrm dt\\
+				%Q	& = \SI{\frac{32273}{219}}{\coulomb}\\
+				Q	& \approx \SI{147.365297}{\coulomb}
+			\end{align}
+
+			Kapazität:
+			\begin{align}
+				C	& = \frac{Q}{U}\\
+				C	& = \frac{\SI{147.365297}{\coulomb}}{\SI{15}{\volt}}\\
+				C	& \approx \SI{9.824353}{\farad}
+			\end{align}
 
 
 
-	\begin{figure}
-	\begin{tikzpicture}[xscale=0.04,yscale=5]
-		% Achsen
-		\draw[->] (-0.3/0.04,0) -- (320,0) node[below right] {$t$ in \Se{}};
-		\draw[->] (0,-0.3/5) -- (0,3.3) node[left] {$I$ in \mAm{}};
-		% Achsbeschriftung
-		\foreach \x in {50,100,...,310} \draw (\x,0.02) -- (\x,-0.02) node [below] {\x};
-		\foreach \y in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.2} \draw (3,\y) -- (-3,\y) node [left] {\y};
-		% Funktion
-		\draw[red, samples=10, domain=0:320] plot (\x, {2.775478*e^(-0.018834*\x)});
-		%Funktionbeschriftung
-		\node (32) at (10 , 2.75) [right] {$f(x) = 2.775478 * e ^{ (-0.018834 * x)}$};	
-		% Messpunkte
-		\node (1)   at (0    ,3.191) {\textsf{x}};
-		\node (2)   at (10  ,2.587) {\textsf{x}};
-		\node (3)   at (20  ,2.096) {\textsf{x}};
-		\node (4)   at (30  ,1.700) {\textsf{x}};
-		\node (5)   at (40  ,1.391) {\textsf{x}};
-		\node (6)   at (50  ,1.132) {\textsf{x}};
-		\node (7)   at (60  ,0.919) {\textsf{x}};
-		\node (8)   at (70  ,0.747) {\textsf{x}};
-		\node (9)   at (80  ,0.609) {\textsf{x}};
-		\node (10) at (90  ,0.496) {\textsf{x}};
-		\node (11) at (100,0.404) {\textsf{x}};
-		\node (12) at (110,0.332) {\textsf{x}};
-		\node (13) at (120,0.272) {\textsf{x}};
-		\node (14) at (130,0.223) {\textsf{x}};
-		\node (15) at (140,0.183) {\textsf{x}};
-		\node (16) at (150,0.151) {\textsf{x}};
-		\node (17) at (160,0.123) {\textsf{x}};
-		\node (18) at (170,0.102) {\textsf{x}};
-		\node (19) at (180,0.085) {\textsf{x}};
-		\node (20) at (190,0.070) {\textsf{x}};
-		\node (20) at (200,0.057) {\textsf{x}};
-		\node (21) at (210,0.049) {\textsf{x}};
-		\node (22) at (220,0.040) {\textsf{x}};
-		\node (23) at (230,0.035) {\textsf{x}};
-		\node (24) at (240,0.029) {\textsf{x}};
-		\node (25) at (250,0.024) {\textsf{x}};
-		\node (26) at (260,0.021) {\textsf{x}};
-		\node (27) at (270,0.018) {\textsf{x}};
-		\node (28) at (280,0.016) {\textsf{x}};
-		\node (29) at (290,0.013) {\textsf{x}};
-		\node (30) at (300,0.012) {\textsf{x}};
-		\node (31) at (310,0.010) {\textsf{x}};
-	\end{tikzpicture}
-	\caption{Diagramm: Kondensatorspannung \Vo{15}}
-	\label{fig:Diagramm_15V}
-	\end{figure}
-
-	
+ 
 
 \end{document}
 
