@@ -1,0 +1,24 @@
+\begin{tikzpicture}[xscale=0.04,yscale=0.94]
+	% Achsen
+	\draw[->] (-0.3/0.04,0) -- (320,0) node[below right] {$t$ in \Se{}};
+	\draw[->] (0,-0.3/0.94) -- (0,11) node[left] {$U$ in \Vo{}};
+	% Achsbeschriftung
+	\foreach \x in {50,100,...,310} \draw (\x,0.02) -- (\x,-0.02) node [below] {\x};
+	\foreach \y in {0.5,1.0,1.5,...,10.5} \draw (3,\y) -- (-3,\y) node [left] {\y};
+	% Funktion
+	\draw[red, samples=10000, domain=0:320] plot (\x, {10.005500*e^(-0.000934*\x)});;
+	%Funktionbeschriftung
+	\node (12) at (10 , 10.3) [right,red] {$U(t) = 10,005500 \cdot e ^ {-0,000934 \cdot t}$};
+	% Messpunkte
+	\node (1)  at (0  ,10.0) {\textsf{x}};
+	\node (2)  at (30 ,9.74) {\textsf{x}};
+	\node (3)  at (60 ,9.46) {\textsf{x}};
+	\node (4)  at (90 ,9.20) {\textsf{x}};
+	\node (5)  at (120,8.94) {\textsf{x}};
+	\node (6)  at (150,8.70) {\textsf{x}};
+	\node (7)  at (180,8.45) {\textsf{x}};
+	\node (8)  at (210,8.22) {\textsf{x}};
+	\node (9)  at (240,8.00) {\textsf{x}};
+	\node (10) at (270,7.78) {\textsf{x}};
+	\node (11) at (300,7.56) {\textsf{x}};
+\end{tikzpicture}

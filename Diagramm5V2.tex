@@ -1,0 +1,45 @@
+\begin{tikzpicture}[xscale=0.04,yscale=1.571]
+	% Achsen
+	\draw[->] (-0.3/0.04,0) -- (320,0) node[below right] {$t$ in \Se{}};
+	\draw[->] (0,-0.3/1.571) -- (0,5.5) node[left] {$U$ in \Vo{}};
+	% Achsbeschriftung
+	\foreach \x in {50,100,...,310} \draw (\x,0.01) -- (\x,-0.01) node [below] {\x};
+	\foreach \y in {0.5,1.0,1.5,...,5} \draw (3,\y) -- (-3,\y) node [left] {\y};
+	% Funktion
+	\draw[red, samples=10000, domain=0:320] plot (\x, {4.081301*e^(-0.017779*\x)});;
+	%Funktionbeschriftung
+	\node (32) at (10 , 4) [right,red] {$U(t) = 4,081301 \cdot e ^{-0,017779 \cdot t}$};
+	% Messpunkte
+	\node (1)   at (0    ,5.000) {\textsf{x}};
+	\node (2)   at (10  ,4.000) {\textsf{x}};
+	\node (3)   at (20  ,3.200) {\textsf{x}};
+	\node (4)   at (30  ,2.700) {\textsf{x}};
+	\node (5)   at (40  ,2.150) {\textsf{x}};
+	\node (6)   at (50  ,1.600) {\textsf{x}};
+	\node (7)   at (60  ,1.400) {\textsf{x}};
+	\node (8)   at (70  ,1.200) {\textsf{x}};
+	\node (9)   at (80  ,1.000) {\textsf{x}};
+	\node (10) at (90  ,0.800) {\textsf{x}};
+	\node (11) at (100,0.700) {\textsf{x}};
+	\node (12) at (110,0.500) {\textsf{x}};
+	\node (13) at (120,0.400) {\textsf{x}};
+	\node (14) at (130,0.400) {\textsf{x}};
+	\node (15) at (140,0.300) {\textsf{x}};
+	\node (16) at (150,0.300) {\textsf{x}};
+	\node (17) at (160,0.200) {\textsf{x}};
+	\node (18) at (170,0.200) {\textsf{x}};
+	\node (19) at (180,0.140) {\textsf{x}};
+	\node (20) at (190,0.120) {\textsf{x}};
+	\node (20) at (200,0.100) {\textsf{x}};
+	\node (21) at (210,0.090) {\textsf{x}};
+	\node (22) at (220,0.073) {\textsf{x}};
+	\node (23) at (230,0.060) {\textsf{x}};
+	\node (24) at (240,0.053) {\textsf{x}};
+	\node (25) at (250,0.045) {\textsf{x}};
+	\node (26) at (260,0.040) {\textsf{x}};
+	\node (27) at (270,0.035) {\textsf{x}};
+	\node (28) at (280,0.032) {\textsf{x}};
+	\node (29) at (290,0.027) {\textsf{x}};
+	\node (30) at (300,0.025) {\textsf{x}};
+	\node (31) at (310,0.023) {\textsf{x}};
+\end{tikzpicture}
