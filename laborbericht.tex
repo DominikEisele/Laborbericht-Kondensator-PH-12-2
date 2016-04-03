@@ -30,7 +30,7 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{autonum}
-
+\usepackage{tabulary}
 
 \setlength{\headheight}{15pt}
 \pagestyle{fancy}
@@ -55,9 +55,9 @@
 %\newcolumntype{R}{>{\raggedleft\arraybackslash}X} % rechtsbündig
 
 
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+%\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
 
 
 \setlength{\tabcolsep}{0pt}
@@ -84,26 +84,24 @@
 \newcommand{\Se}[1]{{$\SI{#1}{\second}$}}
 
 
-
-
 \begin{document}
 
 \begin{titlepage}
 	\begin{flushleft}
 		\vspace*{2\baselineskip}
 		{\fontsize{16}{19.2}\selectfont Laborbericht Physik TGE12/2 A}\\[4\baselineskip]
-		\begin{tabularx}{\textwidth}{rp{5px}X}
-			{\fontsize{16}{19.2}\selectfont Titel:}&&{\fontsize{16}{19.2}\selectfont Entladung eines Kondensators}
-		\end{tabularx}
+		\begin{tabulary}{\textwidth}{LL}
+			{\fontsize{16}{19.2}\selectfont Titel:}&\ {\fontsize{16}{19.2}\selectfont Entladung eines Kondensators}
+		\end{tabulary}
 		\\[5\baselineskip]
 		\setlength{\tabcolsep}{0pt}
 		\renewcommand{\arraystretch}{1,25}
-		\begin{tabular}{lp{5px}l}
-			{\fontsize{14}{16.8}\selectfont Bearbeiter:}&&{\fontsize{14}{16.8}\selectfont Dominik Eisele{}}\\
-			{\fontsize{14}{16.8}\selectfont Mitarbeiter:}&&{\fontsize{14}{16.8}\selectfont }\\
-			{\fontsize{14}{16.8}\selectfont Datum Versuchsdurchführung:}&&{\fontsize{14}{16.8}\selectfont 29.02.2016}\\
-			{\fontsize{14}{16.8}\selectfont Datum Abgabe:}&&{\fontsize{14}{16.8}\selectfont 23.03.2016}
-		\end{tabular}
+		\begin{tabulary}{\textwidth}{LL}
+			{\fontsize{14}{16.8}\selectfont Bearbeiter:}&\ {\fontsize{14}{16.8}\selectfont Dominik Eisele{}}\\
+			{\fontsize{14}{16.8}\selectfont Mitarbeiter:}&\ {\fontsize{14}{16.8}\selectfont }\\
+			{\fontsize{14}{16.8}\selectfont Datum Versuchsdurchführung:}&\ {\fontsize{14}{16.8}\selectfont 29.02.2016}\\
+			{\fontsize{14}{16.8}\selectfont Datum Abgabe:}&\ {\fontsize{14}{16.8}\selectfont 23.03.2016}
+		\end{tabulary}
 		\\[2\baselineskip]
 		{\fontsize{14}{16.8}\selectfont Ich erkläre an Eides statt, den vorliegenden Laborbericht selbst angefertigt zu haben. Alle fremden Quellen wurden in diesem Laborbericht benannt.}
 		\\[2\baselineskip]
@@ -183,8 +181,9 @@
 
 
 
-\newpage
+%\newpage
 \section{Messwerte}
+\FloatBarrier
 	In Tabelle \ref{tab:messwerte1} sind die Messwerte für die ersten drei Messreihen zu sehen. Hierbei handelt es sich um die
 	Kondensatorentladungen über den Widerstand. In Tabelle \ref{tab:messwerte2} sind die Messwerte für die Entladung über den
 	Innenwiderstand des Multimeters zu sehen.
@@ -202,9 +201,9 @@
 		 \label{tab:messwerte2}
 	\end{table}
 
+\FloatBarrier
 
-
-\newpage
+%\newpage
 \section{Auswertung}
 	\subsection{$I(t)$-Diagramme}
 		Für die $I(t)$-Diagramme werden die Ströme mit der Formel $I=\frac{U}{R}$ berechnet.\\
@@ -246,7 +245,7 @@
 		\subsubsection{Für Kondensatorspannung 5V}
 			Ladung:
 			\begin{align}
-				Q	& = \int\limits_{0}^ \infty \mathrm 0,000867324 \cdot e^{-0,017749 * t}\,\mathrm dt\\
+				Q	& = \int\limits_{0}^ \infty \num{0.000867324} \cdot e^{\num{-0.017749} \cdot t}\,\mathrm dt\\
 				%Q	& = \SI{\frac{867324}{17749}}{\farad}\\
 				Q	& \approx \SI{0.0488661}{\coulomb}
 			\end{align}
@@ -261,7 +260,7 @@
 		\subsubsection{Für Kondensatorspannung 10V}
 			Ladung:
 			\begin{align}
-				Q	& = \int\limits_{0}^ \infty \mathrm 0,000001843 \cdot e ^{-0,018870 * t}\,\mathrm dt\\
+				Q	& = \int\limits_{0}^ \infty \num{0.000001843} \cdot e ^{\num{-0.018870} \cdot t}\,\mathrm dt\\
 				%Q	& = \SI{\frac{921443}{9435}}{\coulomb}\\
 				Q	& \approx \SI{0.0097662}{\coulomb}
 			\end{align}
@@ -277,7 +276,7 @@
 		\subsubsection{Für Kondensatorspannung 15V}
 			Ladung:
 			\begin{align}
-				Q	& = \int\limits_{0}^ \infty \mathrm 0,000002775 \cdot e ^{-0,018834 * t}\,\mathrm dt\\
+				Q	& = \int\limits_{0}^ \infty \num{0.000002775} \cdot e ^{\num{-0.018834} \cdot t}\,\mathrm dt\\
 				%Q	& = \SI{\frac{32273}{219}}{\coulomb}\\
 				Q	& \approx \SI{0.147365}{\coulomb}
 			\end{align}
@@ -300,8 +299,8 @@
 			der Regressionskurve einsetzen, und nach $t$ auflösen.
 
 			\begin{align}
-				\SI{1.84}{\volt}	&= 4,081301 \cdot e ^{-0,017779 \cdot t} \\
-				t 			&= 44,8085\\
+				\SI{1.84}{\volt}	&= \num{4.081301} \cdot e ^{\num{-0.017779} \cdot t} \\
+				t 			&= \num{44.8085}\\
 				C			&= \frac{\tau}{R}\\
 				C			&= \frac{\SI{44,8085}{\second}}{\SI{4.7}{\kilo\ohm}}\\
 				C			& \approx \SI{0.009532}{\farad}
@@ -320,8 +319,8 @@
 			$U(\tau) = \SI{10}{\volt} \cdot 0,368 = \SI{3.68}{\volt}$
 
 			\begin{align}
-				\SI{3.68}{\volt}	&= 8,684022 \cdot e ^{-0,018899 \cdot t}\\
-				t 			&= 45.4295 = \tau\\
+				\SI{3.68}{\volt}	&= \num{8.684022} \cdot e ^{\num{-0.018899} \cdot t}\\
+				t 			&= \num{45.4295} = \tau\\
 				C			&= \frac{\tau}{R}\\
 				C			&= \frac{\SI{45.4295}{\second}}{\SI{4.7}{\kilo\ohm}}\\
 				C			& \approx \SI{0.009666}{\farad}
@@ -338,8 +337,8 @@
 			$U(\tau) = \SI{15}{\volt} \cdot 0,368 = \SI{5.52}{\volt}$
 
 			\begin{align}
-				\SI{5.52}{\volt}	&=  13,079768 \cdot e ^ {-0,018850 \cdot t}\\
-				t 			&= 45.766 = \tau\\
+				\SI{5.52}{\volt}	&=  \num{13.079768} \cdot e ^ {\num{-0.018850} \cdot t}\\
+				t 			&= \num{45.766} = \tau\\
 				C			&= \frac{\tau}{R}\\
 				C			&= \frac{\SI{45.766}{\second}}{\SI{4.7}{\kilo\ohm}}\\
 				C			& \approx \SI{0.009737}{\farad}
@@ -366,11 +365,11 @@
 		durch exponentielle Regression der $U(t)$-Kurve, bestimmt, kann man sich den Widerstand, in diesem Fall der Innenwiderstand
 		des Multimeters, über den der Kondensator entladen wurde, berechnen. Dies geschieht indem man die Zetikonstante $\tau$
 		durch die Kapazität teilt, da $\tau = RC$.\\
-		$U(\tau) = \SI{10}{\volt} \cdot 0,368 = \SI{3.68}{\volt}$
+		$U(\tau) = \SI{10}{\volt} \cdot\num{ 0,368} = \SI{3.68}{\volt}$
 
 		\begin{align}
-			\SI{3.68}{\volt}	&=  10,005500 \cdot e ^ {-0,000934 \cdot t}\\
-			t 			&= 1070,9 = \tau\\
+			\SI{3.68}{\volt}	&=  \num{10.0055000} \cdot e ^ {\num{-0.000934} \cdot t}\\
+			t 			&= \num{1070.9} = \tau\\
 			R			&= \frac{\tau}{C}\\
 			R			&= \frac{1070.9}{\SI{0.009716}{\farad}}\\
 			R			& \approx \SI{110220.2552}{\ohm}
@@ -383,7 +382,19 @@
 		\end{figure}
 
 
-
+	\subsection{Fehlerdiskussion}
+		\begin{figure}[H]
+			\centering
+			\begin{tabulary}{\textwidth}{LL}
+        	                               	Fehlerursache		& Beschreibung																	\\
+                                	Experimentieranordnug	& Die Wiederstände des Messgeräts und der Leitungen wurden vernachlässigt								\\
+                                	Messgerät			& Das Messgerät besitz eine Messtoleranz													\\
+                                	Menschlicher Fehler		& Zeitlich ungenaues Ablesen des Messgeräts, durch schnelle Veränderung des Messwerts ist genaues ablesen nicht möglich 	\\
+                                	Stromquelle			& Durch simplen Regler ist sie Spannung nur ungenau einstellbar, Schwankungen der Netzspannung verfälschen die Aufladung	\\
+			\end{tabulary}
+			\caption{Fehlerquellen}
+			\label{tab:fehlerquellen}
+		\end{figure}
 
 
 	

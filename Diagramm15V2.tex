@@ -6,9 +6,9 @@
 	\foreach \x in {50,100,...,310} \draw (\x,0.02) -- (\x,-0.02) node [below] {\x};
 	\foreach \y in {0.5,1.0,1.5,...,15.5} \draw (3,\y) -- (-3,\y) node [left] {\y};
 	% Funktion
-	\draw[red, samples=10000, domain=0:320] plot (\x, {13.079768 * e ^ (-0.018850 * \x)});;
+	\draw[red, samples=200, domain=0:320] plot (\x, {13.079768 * e ^ (-0.018850 * \x)});;
 	%Funktionbeschriftung
-	\node (32) at (10 , 13) [right,red] {$U(t) = 13,079768 \cdot e ^ {-0,018850 \cdot t}$};
+	\node (32) at (10 , 13) [right,red] {$U(t) = \num{13.079768} \cdot e ^ {\num{-0.018850} \cdot t}$};
 	% Messpunkte
 	\node (1)   at (0 ,15.00) {\textsf{x}};
 	\node (2)   at (10,12.16) {\textsf{x}};
